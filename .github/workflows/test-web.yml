@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: Validate Tag Name
         run: |
-          if [[ ! "${{ github.event.inputs.tag_name }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "Invalid tag name. It should follow the pattern v0.0.0"
+          if [[ ! "${{ github.event.inputs.tag_name }}" =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$ ]]; then
+            echo "Invalid tag name. It should follow the semver pattern"
             exit 1
           fi
 
