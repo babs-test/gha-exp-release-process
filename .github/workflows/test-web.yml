@@ -28,7 +28,7 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git fetch origin develop
-          git checkout develop
+          git fetch origin ${{ github.ref_name }}
+          git checkout ${{ github.ref_name }}
           git tag ${{ github.event.inputs.tag_name }}
           git push origin ${{ github.event.inputs.tag_name }}
